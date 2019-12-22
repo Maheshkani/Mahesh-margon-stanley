@@ -18,73 +18,40 @@ var balance = {
 };
 //- sortBy (accepts "acctNum" or "balance")
 //- sortDirection (accepts "asc" or "desc"; default to asc)
+function getData(user,sortBy,sortDirection){
+  let selectedUser;
+  let balNumbers;
+  if(user){
+    selectedUser = acctData.find(obj=>{
+      return user == obj.user
+    })
+      return selectedUser
 
-function myJson( prop ,sortby,sortdirection){
-  var k=[];
-  var test = prop;
-  //console.log('test '+prop);
-  //console.log('sortBy '+ sortby)
-  // console.log('sortdirection '+ sortdirection)
+  }
 
-  acctData.sort(GetSortOrder(sortby));
+  if(sortBy=="acctNum"){
+    let numbers = acctData.map(ob=>{
+      return ob.acctNum.split(" ")[2]
+    })
+    return numbers
+  }else if(sortBy == "balance" && !sortDirection){
+    balNumbers = Object.values(balance)
+    return balNumbers
+  }else if(sortBy == "balance" && sortDirection == "asc"){
+    balNumbers = Object.values(balance)
+    return balNumbers.sort(function(a, b){return a-b})
+  } else if(sortBy == "balance" && sortDirection == "desc"){
+        balNumbers = Object.values(balance)
+      return balNumbers.sort(function(a, b){return b-a})
 
-
-  function GetSortOrder(prop) {
-                return function(a, b) {
-                    if (a[prop] > b[prop]) {
-                        return 1;
-                    } else if (a[prop] < b[prop]) {
-                        return -1;
-                    }
-                    return 0;
-                }
-            }
-
-///console.log(acctData);
-  if(typeof test == 'undefined')
-    var test = 'acctNum';
-  else 
-    test= prop;
-
-
-console.log(test);
-for ( var i=0;i<acctData.length;i++){
-k.push(acctData[i][test]);
-}
-if(sortdirection=="desc")
-{
-k.reverse();
-}
-console.log(k);
-return k;
+  }
 }
 
-console.log("1)  returns only an array of account numbers");
-myJson("acctNum");
-//var act = new myJson();
-//myJson("user","user");
-console.log("2)  returns only an array of account users");
-myJson("user");
-console.log("3)  returns only an array of accountNum and sorted by acctNum");
-myJson("acctNum","acctNum");
-
-console.log("4)  returns only an array of accountNum and sorted by acctNum");
-myJson("acctNum","acctNum","desc");
-
-
-console.log('**************************************');
-console.log('1--- filter to retun based on values Bob');
-console.log(acctData.filter(function(item){
-    return item.user == "Bob";         
-}));
-console.log('2--- filter to return based on value charlie');
-console.log(acctData.filter(function(item){
-    return item.user == "Charlie";         
-}));
-console.log('3--- c) sorted by acctNum');
-console.log(acctData.sort(function(item){
-    return item.acctNum;         
-}));
+console.log(getData("Bob"))
+console.log(getData("Charlie"))
+console.log("acctNum", getData(null,"acctNum"))
+console.log("ASC",getData(null,"balance"))
+console.log("DESC",getData(null,"balance","desc"))
 
 
 
