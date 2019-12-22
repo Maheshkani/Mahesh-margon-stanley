@@ -19,9 +19,28 @@ var balance = {
 //- sortBy (accepts "acctNum" or "balance")
 //- sortDirection (accepts "asc" or "desc"; default to asc)
 
-var myJson = function( prop ){
+function myJson( prop ,sortby,sortdirection){
   var k=[];
   var test = prop;
+  console.log('test '+prop);
+  console.log('sortBy '+ sortby)
+   console.log('sortdirection '+ sortdirection)
+
+  acctData.sort(GetSortOrder(sortby));
+
+  
+  function GetSortOrder(prop) {
+                return function(a, b) {
+                    if (a[prop] > b[prop]) {
+                        return 1;
+                    } else if (a[prop] < b[prop]) {
+                        return -1;
+                    }
+                    return 0;
+                }
+            }
+
+///console.log(acctData);
   if(typeof test == 'undefined')
     var test = 'acctNum';
   else 
@@ -32,40 +51,25 @@ console.log(test);
 for ( var i=0;i<acctData.length;i++){
 k.push(acctData[i][test]);
 }
+if(sortdirection=="desc")
+{
+k.reverse();
+}
 console.log(k);
 return k;
 }
 
-var act = new myJson();
+console.log("1)  returns only an array of account numbers");
+myJson("acctNum");
+//var act = new myJson();
+//myJson("user","user");
+console.log("2)  returns only an array of account users");
+myJson("user");
+console.log("3)  returns only an array of accountNum and sorted by acctNum");
+myJson("acctNum","acctNum");
 
-myJson('user');
-
-function GetSortOrder(prop){
-   return function(a,b){
-      if( a[prop] > b[prop]){
-          return 1;
-      }else if( a[prop] < b[prop] ){
-          return -1;
-      }
-      return 0;
-   }
-}
-
-array.sort( GetSortOrder("acctNum") );
-document.write("Sorted Employee Names : <br>");
-
-for (var item in array) {
- document.write("<br>"+array[item].acctNum);
-}
-
-array.sort( GetSortOrder("user") );
-
-document.write("<br><br> Sorted Technology Names : <br>");
-
-for (var item in array) {
- document.write("<br>"+array[item].user);
-}
-
+console.log("4)  returns only an array of accountNum and sorted by acctNum");
+myJson("acctNum","acctNum","desc");
 
 
 
