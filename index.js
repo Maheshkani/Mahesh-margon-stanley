@@ -3,7 +3,7 @@ import './style.css';
 
 // Write Javascript code!
 const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+appDiv.innerHTML = `<h1>Mahesh-Morgan Stanley test</h1>`;
  var acctData = [ { "acctNum": "AAA - 1234", "user": "Alice" },
  { "acctNum": "AAA - 5231", "user": "Bob" },
  { "acctNum": "AAA - 9921", "user": "Alice" },
@@ -22,9 +22,9 @@ var balance = {
 function myJson( prop ,sortby,sortdirection){
   var k=[];
   var test = prop;
-  console.log('test '+prop);
-  console.log('sortBy '+ sortby)
-   console.log('sortdirection '+ sortdirection)
+  //console.log('test '+prop);
+  //console.log('sortBy '+ sortby)
+  // console.log('sortdirection '+ sortdirection)
 
   acctData.sort(GetSortOrder(sortby));
 
@@ -77,14 +77,15 @@ console.log('1--- filter to retun based on values Bob');
 console.log(acctData.filter(function(item){
     return item.user == "Bob";         
 }));
-console.log('2--- filter to retun based on values Bob');
+console.log('2--- filter to return based on value charlie');
 console.log(acctData.filter(function(item){
     return item.user == "Charlie";         
 }));
-console.log('3--- sort to return based on values accnt');
+console.log('3--- c) sorted by acctNum');
 console.log(acctData.sort(function(item){
     return item.acctNum;         
 }));
+
 
 
 
