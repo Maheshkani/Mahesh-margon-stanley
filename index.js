@@ -19,13 +19,13 @@ var balance = {
 //- sortBy (accepts "acctNum" or "balance")
 //- sortDirection (accepts "asc" or "desc"; default to asc)
 function myJson(user,sortBy,sortDirection){
-  let selectedUser;
-  let balNumbers;
+  let selectUser;
+  let balNums;
   if(user){
-    selectedUser = acctData.find(obj=>{
+    selectUser = acctData.find(obj=>{
       return user == obj.user
     })
-      return selectedUser
+      return selectUser
 
   }
 
@@ -35,14 +35,14 @@ function myJson(user,sortBy,sortDirection){
     })
     return numbers
   }else if(sortBy == "balance" && !sortDirection){
-    balNumbers = Object.values(balance)
-    return balNumbers
+   balNums = Object.values(balance)
+    return balNums
   }else if(sortBy == "balance" && sortDirection == "asc"){
-    balNumbers = Object.values(balance)
-    return balNumbers.sort(function(a, b){return a-b})
+    balNums = Object.values(balance)
+    return balNums.sort(function(a, b){return a-b})
   } else if(sortBy == "balance" && sortDirection == "desc"){
-        balNumbers = Object.values(balance)
-      return balNumbers.sort(function(a, b){return b-a})
+        balNums = Object.values(balance)
+      return balNums.sort(function(a, b){return b-a})
 
   }
 }
