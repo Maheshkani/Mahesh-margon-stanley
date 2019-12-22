@@ -3,7 +3,7 @@ import './style.css';
 
 // Write Javascript code!
 const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>Mahesh-Morgan Stanley test</h1>`;
+appDiv.innerHTML = `<h1>Mahesh-test</h1>`;
  var acctData = [ { "acctNum": "AAA - 1234", "user": "Alice" },
  { "acctNum": "AAA - 5231", "user": "Bob" },
  { "acctNum": "AAA - 9921", "user": "Alice" },
