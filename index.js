@@ -28,7 +28,7 @@ function myJson( prop ,sortby,sortdirection){
 
   acctData.sort(GetSortOrder(sortby));
 
-  
+
   function GetSortOrder(prop) {
                 return function(a, b) {
                     if (a[prop] > b[prop]) {
@@ -70,6 +70,27 @@ myJson("acctNum","acctNum");
 
 console.log("4)  returns only an array of accountNum and sorted by acctNum");
 myJson("acctNum","acctNum","desc");
+
+
+console.log('**************************************');
+console.log('1--- filter to retun based on values Bob');
+console.log(acctData.filter(function(item){
+    return item.user == "Bob";         
+}));
+console.log('2--- filter to retun based on values Bob');
+console.log(acctData.filter(function(item){
+    return item.user == "Charlie";         
+}));
+console.log('3--- sort to return based on values accnt');
+console.log(acctData.sort(function(item){
+    return item.acctNum;         
+}));
+
+
+
+
+
+
 
 
 
