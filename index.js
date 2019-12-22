@@ -18,7 +18,7 @@ var balance = {
 };
 //- sortBy (accepts "acctNum" or "balance")
 //- sortDirection (accepts "asc" or "desc"; default to asc)
-function getData(user,sortBy,sortDirection){
+function myJson(user,sortBy,sortDirection){
   let selectedUser;
   let balNumbers;
   if(user){
@@ -46,12 +46,15 @@ function getData(user,sortBy,sortDirection){
 
   }
 }
-
-console.log(getData("Bob"))
-console.log(getData("Charlie"))
-console.log("acctNum", getData(null,"acctNum"))
-console.log("ASC",getData(null,"balance"))
-console.log("DESC",getData(null,"balance","desc"))
+console.log('a) filtered by Bob');
+console.log(myJson("Bob"));
+console.log('b) filtered by Charlie');
+console.log(myJson("Charlie"));
+console.log("acctNum", myJson(null,"acctNum"));
+console.log('c) sorted by acctNum');
+console.log("Asc",myJson(null,"balance"));
+console.log('d) filtered by Alice; sorted by balance ascending');
+console.log("Desc",myJson(null,"balance","desc"));
 
 
 
