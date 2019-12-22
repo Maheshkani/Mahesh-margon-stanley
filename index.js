@@ -50,8 +50,9 @@ console.log('a) filtered by Bob');
 console.log(myJson("Bob"));
 console.log('b) filtered by Charlie');
 console.log(myJson("Charlie"));
-console.log("acctNum", myJson(null,"acctNum"));
 console.log('c) sorted by acctNum');
+console.log("acctNum", myJson(null,"acctNum"));
+console.log('c) 1 sorted by balance')
 console.log("Asc",myJson(null,"balance"));
 console.log('d) filtered by Alice; sorted by balance ascending');
 console.log("Desc",myJson(null,"balance","desc"));
